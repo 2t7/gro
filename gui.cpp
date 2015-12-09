@@ -81,7 +81,7 @@ void Gui::about ( void ) {
 
     // set directory for C++ functions like fopen
     // NOTE: Here is probably the wrong place for this code.
-    chdir("../../..");
+    //chdir("../../..");
     GetCurrentDir(cCurrentPath, sizeof(cCurrentPath));
     cCurrentPath[sizeof(cCurrentPath) - 1] = '\0'; /* not really required */
     char buf[1000];

@@ -93,24 +93,24 @@ void World::init () {
     space->iterations = ITERATIONS;
     space->damping = DAMPING;
 
-    // Default parameters. These will be over-written when/if the program
-    // defines them via "set". But just in case the user does not do this,
-    // they are defined here.
-
-    set_param ( "chemostat_width", 200);
-    set_param ( "chemostat_height", 200);
-    set_param ( "signal_area_width", 800);
-    set_param ( "signal_num_divisions", 160);
-    set_param ( "population_max", 1000 );
-
-    set_param ( "signal_grid_width", 800 );
-    set_param ( "signal_grid_height", 800 );
-    set_param ( "signal_element_size", 5 );
-
     // Program
     ASSERT ( prog != NULL );
 
     if ( !program_initialized ) {
+
+        // Default parameters. These will be over-written when/if the program
+        // defines them via "set". But just in case the user does not do this,
+        // they are defined here.
+
+        set_param ( "chemostat_width", 200);
+        set_param ( "chemostat_height", 200);
+        set_param ( "signal_area_width", 800);
+        set_param ( "signal_num_divisions", 160);
+        set_param ( "population_max", 1000 );
+
+        set_param ( "signal_grid_width", 800 );
+        set_param ( "signal_grid_height", 800 );
+        set_param ( "signal_element_size", 5 );
 
         prog->init(this); // if this throws an exception
         // the program will not be initialized

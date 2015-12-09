@@ -21,6 +21,7 @@
 #include "EColi.h"
 //#include "Yeast.h"
 #include "Programs.h"
+#include <ctime>
 
 static gro_Program * current_gro_program = NULL;
 static Cell * current_cell = NULL;
@@ -474,6 +475,20 @@ Value * gro_time ( std::list<Value *> * args, Scope * s ) {
     World * world = current_gro_program->get_world();
 
     return new Value ( world->get_time() );
+
+}
+
+Value * gro_systime ( std::list<Value *> * args, Scope * s ) {
+
+    int buffer_size = 50;
+    char buffer[buffer_size];
+    time_t rawtime;
+    struct tm * timeinfo;
+    time (&rawtime);
+    timeinfo = localtime(&rawtime);
+    strftime(buffer,buffer_size,"%Y-%m-%d_%H-%M-%S",timeinfo);
+    std::string str(buffer);
+    return new Value ( buffer );
 
 }
 
@@ -1049,6 +1064,7 @@ void register_gro_functions ( void ) {
   register_ccl_function ( "clear", gro_clear );
   register_ccl_function ( "chemostat", chemostat );
   register_ccl_function ( "barrier", barrier );
+  register_ccl_function ( "systime", gro_systime );
 
   // File I/O
   register_ccl_function ( "fopen", gro_fopen );

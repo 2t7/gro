@@ -43,6 +43,7 @@ internal real stats ( string ) "stats";
 internal unit snapshot ( string ) "snapshot";
 internal unit dump ( int ) "dump";
 internal real time() "time";
+internal unit systime() "systime";
 
 // Themes
 dark_theme := [

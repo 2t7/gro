@@ -120,6 +120,7 @@ set ( "cfp_saturation_max", 50.0 );
 
 set ( "chemostat_width",  200 );
 set ( "chemostat_height", 200 );
+set ( "chemostat_speed", 250 );
 
 set ( "throttle", 0.0 ); 
 set ( "population_max", 1000 );

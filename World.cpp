@@ -384,7 +384,7 @@ void World::update ( void ) {
 
             for ( j=population->begin(); j!=population->end(); j++ ) {
 
-                cpBodyApplyForce ( (*j)->get_shape()->body, chemostat_flow ( (*j)->get_x(), (*j)->get_y(), 250*get_sim_dt() ), cpv(0,0) );
+                cpBodyApplyForce ( (*j)->get_shape()->body, chemostat_flow ( (*j)->get_x(), (*j)->get_y(), get_param("chemostat_speed")*get_sim_dt() ), cpv(0,0) );
 
                 if ( out_of_bounds ( (*j)->get_x(), (*j)->get_y() ) ) {
 
